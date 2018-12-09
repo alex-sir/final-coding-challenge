@@ -25,7 +25,7 @@ function reduce(ray, cb, initialValue) {
 
         if (typeof ray === 'string') {
             for (var i = 0; i < ray.length; i++) {
-                value = cb.call(ray, initialValue, ray.charAt(i));
+                value = cb.call(this, initialValue, ray.charAt(i));
                 initialValue = value;
             }
             return value;
@@ -33,7 +33,7 @@ function reduce(ray, cb, initialValue) {
 
         if (ray instanceof Array) {
             for (var i = 0; i < ray.length; i++) {
-                value = cb.call(ray, initialValue, ray[i]);
+                value = cb.call(this, initialValue, ray[i]);
                 initialValue = value;
             }
             return value;
@@ -41,7 +41,7 @@ function reduce(ray, cb, initialValue) {
 
         if (typeof ray === 'object' && ray instanceof Array === false) {
             for (var property in ray) {
-                value = cb.call(ray, initialValue, ray[property]);
+                value = cb.call(this, initialValue, ray[property]);
                 initialValue = value;
             }
             return value;

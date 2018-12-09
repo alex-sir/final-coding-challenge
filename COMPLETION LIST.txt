@@ -18,4 +18,5 @@
 **functions/defer
 **collections/for-each
 **collections/map
-collections/reduce
+**collections/reduce
+Done :)
